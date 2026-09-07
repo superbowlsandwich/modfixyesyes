@@ -27,9 +27,9 @@ public class MagicDataMixin implements MagicDataPlayer {
         if (getPlayer() == null) {
             return original.call(new Object[0]).floatValue();
         }
-        IManaCap blah = (IManaCap) getPlayer().getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            return (float) blah.getCurrentMana();
+        IManaCap manaCap = (IManaCap) getPlayer().getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            return (float) manaCap.getCurrentMana();
         }
         return original.call(new Object[0]).floatValue();
     }
@@ -40,9 +40,9 @@ public class MagicDataMixin implements MagicDataPlayer {
             original.call(Float.valueOf(mana));
             return;
         }
-        IManaCap blah = (IManaCap) getPlayer().getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            blah.setMana(mana);
+        IManaCap manaCap = (IManaCap) getPlayer().getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            manaCap.setMana(mana);
         }
         original.call(Float.valueOf(mana));
     }
