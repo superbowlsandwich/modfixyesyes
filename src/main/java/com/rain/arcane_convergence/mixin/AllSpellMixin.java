@@ -1,0 +1,137 @@
+package com.rain.arcane_convergence.mixin;
+
+import com.Polarice3.Goety.common.magic.spells.ArrowRainSpell;
+import com.Polarice3.Goety.common.magic.spells.BulwarkSpell;
+import com.Polarice3.Goety.common.magic.spells.CorruptedBeamSpell;
+import com.Polarice3.Goety.common.magic.spells.FangSpell;
+import com.Polarice3.Goety.common.magic.spells.FeastSpell;
+import com.Polarice3.Goety.common.magic.spells.FireBreathSpell;
+import com.Polarice3.Goety.common.magic.spells.IgniteSpell;
+import com.Polarice3.Goety.common.magic.spells.IllusionSpell;
+import com.Polarice3.Goety.common.magic.spells.IronHideSpell;
+import com.Polarice3.Goety.common.magic.spells.MagicBoltSpell;
+import com.Polarice3.Goety.common.magic.spells.ShockwaveSpell;
+import com.Polarice3.Goety.common.magic.spells.SonicBoomSpell;
+import com.Polarice3.Goety.common.magic.spells.SoulBoltSpell;
+import com.Polarice3.Goety.common.magic.spells.SoulHealSpell;
+import com.Polarice3.Goety.common.magic.spells.SpikeSpell;
+import com.Polarice3.Goety.common.magic.spells.SwordSpell;
+import com.Polarice3.Goety.common.magic.spells.TeethSpell;
+import com.Polarice3.Goety.common.magic.spells.TelekinesisSpell;
+import com.Polarice3.Goety.common.magic.spells.VexSpell;
+import com.Polarice3.Goety.common.magic.spells.WardingSpell;
+import com.Polarice3.Goety.common.magic.spells.WeakeningSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.BioMineSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.BouncyBubbleSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.BubbleStreamSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.ElderCurseSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.GuardianSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.PrismaBeamSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.SteamSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.TidalSpell;
+import com.Polarice3.Goety.common.magic.spells.abyss.TridentStormSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.BlizzardSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.ChillHideSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.FrostBreathSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.FrostNovaSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.HailSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.IceChunkSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.IceGolemSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.IceSpikeSpell;
+import com.Polarice3.Goety.common.magic.spells.frost.IceStormSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.BarricadeSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.BurrowingSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.EarthFistSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.EruptionSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.PulverizeSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.QuakingSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.RotationSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.ScatterSpell;
+import com.Polarice3.Goety.common.magic.spells.geomancy.SensingSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.BlackguardSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.HauntedSkullSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.IceBouquetSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.KillingSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.LeechingSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.PhantomSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.ReaperSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.SkeletonSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.VanguardSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.WraithSpell;
+import com.Polarice3.Goety.common.magic.spells.necromancy.ZombieSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.BlazeSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.BombardmentSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.FireBlastSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.FireballSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.FlameStrikeSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.GhastSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.LavaballSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.MagmaSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.MeteorShowerSpell;
+import com.Polarice3.Goety.common.magic.spells.nether.WitherSkullSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.BoltingSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ChargeSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.DischargeSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ElectroOrbSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.LightningSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.MonsoonSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ScattershotSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ShockingSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ThunderboltSpell;
+import com.Polarice3.Goety.common.magic.spells.storm.ThunderstormSpell;
+import com.Polarice3.Goety.common.magic.spells.utility.CommandSpell;
+import com.Polarice3.Goety.common.magic.spells.utility.CraftingSpell;
+import com.Polarice3.Goety.common.magic.spells.utility.GlowLightSpell;
+import com.Polarice3.Goety.common.magic.spells.utility.IlluminateSpell;
+import com.Polarice3.Goety.common.magic.spells.utility.SoulLightSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.BanishSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.BlastlingSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.BlinkSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.CallSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.EndWalkSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.EnderChestSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.RecallSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.SnarelingSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.TroopSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.TunnelSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.VoidRiftSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.VoidShockSpell;
+import com.Polarice3.Goety.common.magic.spells.void_spells.WatchlingSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.BlossomSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.EntanglingSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.GrappleSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.HuntingSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.LeapingSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.MaulingSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.OvergrowthSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.PoisonDartSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.SlimySpell;
+import com.Polarice3.Goety.common.magic.spells.wild.SwarmSpell;
+import com.Polarice3.Goety.common.magic.spells.wild.WhisperSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.CushionSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.CycloneSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.FlyingSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.LaunchSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.RazorWindSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.UpdraftSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.WhirlwindSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.WindBlastSpell;
+import com.Polarice3.Goety.common.magic.spells.wind.WindHornSpell;
+import com.rain.arcane_convergence.config.ModConfig;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+/* JADX INFO: loaded from: arcane_convergence-1.0.0bugfix-all.jar:com/rain/arcane_convergence/mixin/AllSpellMixin.class */
+@Mixin({ArrowRainSpell.class, BulwarkSpell.class, CorruptedBeamSpell.class, FangSpell.class, FeastSpell.class, FireBreathSpell.class, IgniteSpell.class, IllusionSpell.class, IronHideSpell.class, MagicBoltSpell.class, ShockwaveSpell.class, SonicBoomSpell.class, SoulBoltSpell.class, SoulHealSpell.class, SpikeSpell.class, SwordSpell.class, TeethSpell.class, TelekinesisSpell.class, VexSpell.class, WardingSpell.class, WeakeningSpell.class, CushionSpell.class, CycloneSpell.class, FlyingSpell.class, LaunchSpell.class, RazorWindSpell.class, UpdraftSpell.class, WhirlwindSpell.class, WindBlastSpell.class, WindHornSpell.class, BlossomSpell.class, EntanglingSpell.class, GrappleSpell.class, HuntingSpell.class, LeapingSpell.class, MaulingSpell.class, OvergrowthSpell.class, PoisonDartSpell.class, SlimySpell.class, SwarmSpell.class, WhisperSpell.class, BanishSpell.class, BlastlingSpell.class, BlinkSpell.class, CallSpell.class, EnderChestSpell.class, EndWalkSpell.class, RecallSpell.class, SnarelingSpell.class, TroopSpell.class, TunnelSpell.class, VoidRiftSpell.class, VoidShockSpell.class, WatchlingSpell.class, CommandSpell.class, CraftingSpell.class, GlowLightSpell.class, IlluminateSpell.class, SoulLightSpell.class, BoltingSpell.class, ChargeSpell.class, DischargeSpell.class, ElectroOrbSpell.class, LightningSpell.class, MonsoonSpell.class, ScattershotSpell.class, ShockingSpell.class, ThunderboltSpell.class, ThunderstormSpell.class, BlazeSpell.class, BombardmentSpell.class, FireballSpell.class, FireBlastSpell.class, FlameStrikeSpell.class, GhastSpell.class, LavaballSpell.class, MagmaSpell.class, MeteorShowerSpell.class, WitherSkullSpell.class, BlackguardSpell.class, HauntedSkullSpell.class, IceBouquetSpell.class, KillingSpell.class, LeechingSpell.class, PhantomSpell.class, ReaperSpell.class, SkeletonSpell.class, VanguardSpell.class, WraithSpell.class, ZombieSpell.class, BarricadeSpell.class, BurrowingSpell.class, EarthFistSpell.class, EruptionSpell.class, PulverizeSpell.class, QuakingSpell.class, RotationSpell.class, ScatterSpell.class, SensingSpell.class, BlizzardSpell.class, ChillHideSpell.class, FrostBreathSpell.class, FrostNovaSpell.class, HailSpell.class, IceChunkSpell.class, IceGolemSpell.class, IceSpikeSpell.class, IceStormSpell.class, BioMineSpell.class, BouncyBubbleSpell.class, BubbleStreamSpell.class, ElderCurseSpell.class, GuardianSpell.class, PrismaBeamSpell.class, SteamSpell.class, TidalSpell.class, TridentStormSpell.class})
+public class AllSpellMixin {
+    @Inject(method = {"defaultSoulCost"}, at = {@At("RETURN")}, cancellable = true, remap = false)
+    private void mixinDefaultSoulCost(CallbackInfoReturnable<Integer> cir) {
+        if (ModConfig.GOETY_SOUL_MULTIPLIER != null) {
+            cir.setReturnValue(Integer.valueOf((int) (((double) ((Integer) cir.getReturnValue()).intValue()) * ((Double) ModConfig.GOETY_SOUL_MULTIPLIER.get()).doubleValue())));
+        } else {
+            cir.setReturnValue(Integer.valueOf((int) (((double) ((Integer) cir.getReturnValue()).intValue()) * 1.5d)));
+        }
+    }
+}

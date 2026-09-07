@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "com.rain.arcane_convergence.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "${mod_id}.refmap.json",
+  "plugin": "com.rain.arcane_convergence.MixinConfigPlugin",
+  "mixins": [
+    "AbstractSpellMixin",
+    "AttributeAffixMixin",
+    "AttributeBonusMixin",
+    "GemMixin",
+    "ISSpellBookMixin",
+    "MagicDataMixin",
+    "MagicManagerMixin",
+    "ModifierInstMixin",
+    "SimpleAttributeCurioMixin",
+    "UpgradeTypesMixin",
+    "SEImpMixin",
+    "ExtendedArmorMaterialsMixin",
+    "SoulTakenListenerMixin",
+    "AllSpellMixin",
+    "SEHelperMixin",
+    "IDarkWandMixin"
+  ],
+  "client": [
+    "ManaBarOverlayMixin",
+    "SoulEnergyGuiMixin"
+  ],
+  "minVersion": "0.8.5"
+}

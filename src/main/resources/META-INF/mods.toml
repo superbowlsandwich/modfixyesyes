@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+[[mods]]
+modId="arcane_convergence"
+version="1.0.0bugfix"
+displayName="Arcane Convergence"
+authors="Rain"
+description='''Unifies Mana between Spell Casting Mods.'''
+[[dependencies.arcane_convergence]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.arcane_convergence]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.arcane_convergence]]
+modId="irons_spellbooks"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
