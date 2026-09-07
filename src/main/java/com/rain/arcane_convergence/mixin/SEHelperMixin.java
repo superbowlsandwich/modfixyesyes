@@ -18,50 +18,54 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class SEHelperMixin {
     @WrapMethod(method = {"getSESouls"}, remap = false)
     private static int getSESouls(Player player, Operation<Integer> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
             return original.call(player).intValue();
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            return (int) blah.getCurrentMana();
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            return (int) manaCap.getCurrentMana();
         }
         return original.call(player).intValue();
     }
 
     @WrapMethod(method = {"setSESouls"}, remap = false)
     private static void setSESouls(Player player, int souls, Operation<Void> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
-            original.call(Integer.valueOf(souls));
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
+            original.call(player, Integer.valueOf(souls));
             return;
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            blah.setMana(souls);
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            manaCap.setMana(souls);
         }
-        original.call(Integer.valueOf(souls));
+        original.call(player, Integer.valueOf(souls));
     }
 
     @WrapMethod(method = {"setSoulsAmount"}, remap = false)
     private static void setSoulsAmount(Player player, int souls, Operation<Void> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
-            original.call(Integer.valueOf(souls));
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
+            original.call(player, Integer.valueOf(souls));
             return;
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            blah.setMana(souls);
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            manaCap.setMana(souls);
         }
-        original.call(Integer.valueOf(souls));
+        original.call(player, Integer.valueOf(souls));
     }
 
     @WrapMethod(method = {"getSoulAmountInt"}, remap = false)
     private static int getSoulAmountInt(Player player, Operation<Integer> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
             return original.call(player).intValue();
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            return (int) blah.getCurrentMana();
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            return (int) manaCap.getCurrentMana();
         }
         return original.call(player).intValue();
     }
@@ -73,26 +77,28 @@ public class SEHelperMixin {
 
     @WrapMethod(method = {"decreaseSouls"}, remap = false)
     private static void decreaseSouls(Player player, int souls, Operation<Void> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
             original.call(player, Integer.valueOf(souls));
             return;
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            blah.setMana(blah.getCurrentMana() - ((double) souls));
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            manaCap.setMana(manaCap.getCurrentMana() - ((double) souls));
         }
         original.call(player, Integer.valueOf(souls));
     }
 
     @WrapMethod(method = {"increaseSouls"}, remap = false)
     private static void increaseSouls(Player player, int souls, Operation<Void> original) {
-        if (player == null || !(player instanceof ServerPlayer)) {
+        // Only run custom logic on server players, otherwise use original
+        if (!(player instanceof ServerPlayer)) {
             original.call(player, Integer.valueOf(souls));
             return;
         }
-        IManaCap blah = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse((Object) null);
-        if (blah != null) {
-            blah.setMana(blah.getCurrentMana() + ((double) souls));
+        IManaCap manaCap = (IManaCap) player.getCapability(CapabilityRegistry.MANA_CAPABILITY).orElse(null);
+        if (manaCap != null) {
+            manaCap.setMana(manaCap.getCurrentMana() + ((double) souls));
         }
         original.call(player, Integer.valueOf(souls));
     }
